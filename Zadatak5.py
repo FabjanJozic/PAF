@@ -43,7 +43,8 @@ def jednadzba_pravca():
     if pitanje == 'E':
         slika = plt.show()
     elif pitanje == 'P':
-        slika = fig.savefig(os.path.join('Zadatak5.pdf'))
+        ime = input('Upišite naziv pod kojim će se spremiti graf: ')
+        slika = fig.savefig(os.path.join('{}.pdf'.format(ime)))
     else:
         print('Pogreška pri odabiru opcije ispisa grafa.')
 
