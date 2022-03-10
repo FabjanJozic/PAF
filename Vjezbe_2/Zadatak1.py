@@ -20,6 +20,7 @@ def gibanje():
         x.append(x0)
 
     fig, axes = plt.subplots(1, 3, figsize=(8, 6), dpi=250)
+    axes = fig.add_axes()
     axes.set_aspect('equal')
     plt.axis('equal')
     axes[0].plot(a, t, 'b')
@@ -40,3 +41,5 @@ def gibanje():
     fig.tight_layout()
 
     return plt.show()
+
+print(gibanje())
