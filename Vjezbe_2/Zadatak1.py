@@ -13,7 +13,7 @@ def graf_gibanje(F, m):
     #dx=v*dt
     dt = 0.001
     
-    for i in range(100):
+    for i in range(10000):
         vrijeme.append(i*(dt))  # type: ignore
         brzina.append(brzina[i]+akceleracija[i]*(dt))
         put.append(put[i]+brzina[i]*(dt))     # type: ignore
