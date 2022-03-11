@@ -6,7 +6,7 @@ import os
 
 
 
-def jednoliko_gibanje(F, m):
+def jednoliko_gibanje(F, m, t):
     akceleracija = [F/m]
     vrijeme = [0]
     brzina = [0]
@@ -14,7 +14,7 @@ def jednoliko_gibanje(F, m):
     #dv=a*dt
     #dx=v*dt
     dt = 0.001
-    for i in range(10000):
+    for i in range(1000*t):
         vrijeme.append(i*(dt))  # type: ignore
         brzina.append(brzina[i]+akceleracija[i]*(dt))
         put.append(put[i]+brzina[i]*(dt))     # type: ignore
@@ -49,7 +49,7 @@ def jednoliko_gibanje(F, m):
     return slika
 
 
-def kosi_hitac(v, kut):
+def kosi_hitac(v, kut, t):
     kut_rad = (kut / 180)*np.pi
     vrijeme = [0]
     xbrzina = [v*np.cos(kut_rad)]
@@ -60,7 +60,7 @@ def kosi_hitac(v, kut):
     #x(t)=v*cos(a)*t+x0
     #y(t)=-0.5*g*t^2+v*sin(a)*t+y0
     dt = 0.001
-    for i in range(10000):
+    for i in range(1000*t):
         vrijeme.append(i*(dt))  # type: ignore
         xbrzina.append(v*np.cos(kut_rad))
         ybrzina.append(ybrzina[i]-g*(dt))
