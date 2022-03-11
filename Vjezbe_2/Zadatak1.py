@@ -57,4 +57,5 @@ def gibanje():
 
 
 
+
 print(gibanje())  
