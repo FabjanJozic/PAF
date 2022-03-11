@@ -25,7 +25,7 @@ def gibanje():
         A = (vrijeme[i]/vrijeme[i])*a
         akceleracija.append(A)
             
-    fig, ((axes1, axes2), (axes3, axes4)) = plt.subplots(nrows=2, ncols=2, figsize=(6,4), dpi=250)
+    fig, ((axes1, axes2), (axes3, axes4)) = plt.subplots(nrows=2, ncols=2, figsize=(5,4), dpi=250)
     plt.axis('equal')
     plt.rcParams.update({'font.size': 7})
     axes1.plot(vrijeme, akceleracija, 'b')
