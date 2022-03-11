@@ -45,7 +45,7 @@ def gibanje():
     axes3.grid()
     axes4.plot(0, 0, 'w*')
     axes4.plot(1, 1, 'w*')
-    axes4.plot(2, 2, 'w*')
+    axes4.plot(2, 2, 'w+')
     axes4.legend(['Dijagram (1) prikazuje ovisnost akceleracija o vremenu \nza tijelo određene mase na koje djeluje određena sila.\n', 
                  'Dijagram (2) prikazuje ovisnost brzine o vremenu za \ntijelo određene mase na koje djeluje određena sila.\n',
                  'Dijagram (3) prikazuje ovisnost prijeđenog puta o vremenu \nza tijelo određene mase na koje djeluje određena sila.\n'],
