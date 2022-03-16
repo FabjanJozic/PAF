@@ -1,10 +1,5 @@
 
-def jednadzba_pravca():
-    A1 = int(input('Upiši vrijednost x koordinate prve točke: '))
-    A2 = int(input('Upiši vrijednost y koordinate prve točke: '))
-    B1 = int(input('Upiši vrijednost x koordinate druge točke: '))
-    B2 = int(input('Upiši vrijednost y koordinate druge točke: '))
-
+def jednadzba_pravca(A1, A2, B1, B2):
     k = (B2 - A2)/(B1 - A1)
     a = -k*A1 + A2
     b = None
@@ -19,4 +14,4 @@ def jednadzba_pravca():
     return b
 
 
-print(jednadzba_pravca())
+print(jednadzba_pravca(1,4,2,7))

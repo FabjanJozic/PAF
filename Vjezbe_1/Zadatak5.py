@@ -4,11 +4,7 @@ import numpy as np
 
 
 
-def jednadzba_pravca():
-    A1 = int(input('Upiši vrijednost x koordinate prve točke: '))
-    A2 = int(input('Upiši vrijednost y koordinate prve točke: '))
-    B1 = int(input('Upiši vrijednost x koordinate druge točke: '))
-    B2 = int(input('Upiši vrijednost y koordinate druge točke: '))
+def jednadzba_pravca(A1, A2, B1, B2):
     xkoordinate = [A1, B1]
     ykoordinate = [A2, B2]
 
@@ -48,8 +44,8 @@ def jednadzba_pravca():
     else:
         print('Pogreška pri odabiru opcije ispisa grafa.')
 
-    return slika
+    return slika    # type: ignore
 
 
 
-jednadzba_pravca()
+jednadzba_pravca(1,6,7,4)
