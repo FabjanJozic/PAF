@@ -147,3 +147,4 @@ def meta(v, kut, Sx, Sy, r, t):
     axes.grid()
     return plt.show()
 
+meta(20, 45, 15, 10, 3, 6)
