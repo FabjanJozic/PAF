@@ -51,7 +51,7 @@ class Particle:
     
     def range(self, dt):
         '''
-        Funkcija računa domet objekta ako ima putanju kosog hica.
+        Funkcija računa domet objekta koji ima putanju kosog hica.
         '''
         while self.y0[-1] >= 0:
             self.__move(dt)
@@ -59,8 +59,7 @@ class Particle:
     
     def plot_trajectory(self):
         '''
-        Funkcija crta xy-graf gibanja objekta opisanog kao kosi hitac u vremenu koje zadaje
-        korisnik.
+        Funkcija crta xy-graf gibanja objekta opisanog kao kosi hitac.
         '''
         while self.y0[-1] >= 0:
             self.__move(0.001)  
