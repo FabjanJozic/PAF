@@ -50,7 +50,7 @@ def integral_square(funkcija, a, b, br):
 def integral_trapezoid(funkcija, a, b, br):
     '''
     Funkcija koja kao ulazne parametre prima funkciju, granice integracije i broj podjela
-    za numeričku integraciju, a vraća gornju i donju među koristeći trapeznu aproksimaciju. 
+    za numeričku integraciju, a vraća vrijednost integrala koristeći trapeznu aproksimaciju. 
     '''
     e = (b-a)/br
     integ = 0
