@@ -6,7 +6,7 @@ import math
     #return  3*(x**2)
 
 
-def derivation(funkcija, x, e, metoda):
+def derivation(funkcija, x, e, metoda = 3):
     '''
     Funkcija koja racuna vrijednost funkcije u točki x koju odabire korisnik. Korisnik
     bira diferencijal  e  te metodu derivacije koja može imati vrijednost 2 ili 3.
@@ -17,7 +17,7 @@ def derivation(funkcija, x, e, metoda):
         deriv = (funkcija(x+e) - funkcija(x-e))/(2*e)
     return deriv            #type: ignore
 
-def derivation_range(funkcija, a, b, e, metoda):
+def derivation_range(funkcija, a, b, e, metoda = 3):
     '''
     Funkcija koja racuna vrijednost funkcije u rasponu točaka od A do B koji odabire korisnik.
     Korisnik bira diferencijal  e  te metodu derivacije koja može imati vrijednost 2 ili 3.
@@ -31,7 +31,7 @@ def derivation_range(funkcija, a, b, e, metoda):
             poslije.append(derivation(funkcija, prije[i], e, 3))
     return prije, poslije
 
-def integral_sqare(funkcija, a, b, br):
+def integral_square(funkcija, a, b, br):
     '''
     Funkcija koja kao ulazne parametre prima funkciju, granice integracije i broj podjela
     za numeričku integraciju, a vraća gornju i donju među koristeći pravokutnu aproksimaciju.    
@@ -40,20 +40,26 @@ def integral_sqare(funkcija, a, b, br):
     x = np.arange(a, b+0.0001, e)
     donja = 0
     gornja = 0
+    integ = 0
     for i in range(len(x)):
-        gornja += funkcija(x[i])*e
-        donja += funkcija(x[i-1])*e
+        integ += funkcija(x[i])*e 
+    gornja = integ - funkcija(a)*e
+    donja = integ - funkcija(b)*e
     return gornja, donja
 
 def integral_trapezoid(funkcija, a, b, br):
+    '''
+    Funkcija koja kao ulazne parametre prima funkciju, granice integracije i broj podjela
+    za numeričku integraciju, a vraća gornju i donju među koristeći trapeznu aproksimaciju. 
+    '''
     e = (b-a)/br
-    inter = 0
+    integ = 0
     x = np.arange(a, b+0.0001, e)
     for i in range(len(x)):
-        inter += (funkcija(x[i-1]) + funkcija(x[i]))*(e/2)
-    return inter
+        integ += (funkcija(x[i-1]) + funkcija(x[i]))*(e/2)
+    return integ
 
-#print(derivation(funkcija, 3, 0.001, 2))
-#print(derivation_range(funkcija, 1, 4, 0.001, 3)[0], derivation_range(funkcija, 1, 4, 0.001, 3)[1])
-#print(integral_sqare(funkcija, 0, 3, 1000)) 
+#print(derivation(funkcija, 3, 0.001, 3))
+#print(derivation_range(funkcija, 1, 4, 0.001, 2)[0], derivation_range(funkcija, 1, 4, 0.001, 2)[1])
+#print(integral_square(funkcija, 0, 3, 1000)) 
 #print(integral_trapezoid(funkcija, 0, 3, 1000))   
