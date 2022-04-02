@@ -164,4 +164,4 @@ class Particle:
 '''p = Particle()
 p.set_initial_conditions(24.5, 60, 0, 0)
 print(p.velocity_to_hit_target(0, 0, 45, 15, 9, 4))
-print(p.angle_to_hit_target(0, 0, 12, 10, 3, 1))'''
+print(p.angle_to_hit_target(0, 0, 25, 10, 3, 1))'''
