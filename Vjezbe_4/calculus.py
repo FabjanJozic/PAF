@@ -53,11 +53,13 @@ def integral_trapezoid(funkcija, a, b, br):
     za numeričku integraciju, a vraća vrijednost integrala koristeći trapeznu aproksimaciju. 
     '''
     e = (b-a)/br
+    trap = 0
     integ = 0
     x = np.arange(a, b+0.0001, e)
     for i in range(len(x)):
-        integ += (funkcija(x[i-1]) + funkcija(x[i]))*(e/2)
-    return integ
+        integ += funkcija(x[i])*e
+    trap = integ +(funkcija(a) + funkcija(b))*(e/2)
+    return trap
 
 #print(derivation(funkcija, 3, 0.001, 3))
 #print(derivation_range(funkcija, 1, 4, 0.001, 2)[0], derivation_range(funkcija, 1, 4, 0.001, 2)[1])

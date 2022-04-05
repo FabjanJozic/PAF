@@ -16,7 +16,7 @@ gornja_suma = []
 donja_suma = []
 trapez = []
 raspon = []
-for br in np.arange(10, 900, 10):
+for br in np.arange(10, 1000, 10):
     y.append(((x2**3)/3+x2) - ((x1**3)/3+x1))
     raspon.append(br)
     gornja_suma.append(cal.integral_square(funkcija, x1, x2, br)[0])
