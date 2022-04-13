@@ -38,6 +38,7 @@ class HarmonicOscillator:
         def plot_trajectory(self, t, dt):
             while self.t[-1] <= t:
                 self.__move(dt)
+                self.t.append(self.t[-1] + dt)
             fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(18, 6), dpi=80)
             plt.subplots_adjust(wspace=0.4, hspace=0.5)
             plt.rcParams.update({'font.size': 8})           #type: ignore
@@ -77,10 +78,10 @@ class HarmonicOscillator:
             
             
             
-kugla = HarmonicOscillator()
+'''kugla = HarmonicOscillator()
 kugla.set_initial_conditions(4, 120, 0, -10)  #Morate staviti početni položaj različit od 0.
-#kugla.plot_trajectory(2.7, 0.001)
-print(kugla.period(0.001))
+kugla.plot_trajectory(2.7, 0.001)
+print(kugla.period(0.001))'''
 
 
 
