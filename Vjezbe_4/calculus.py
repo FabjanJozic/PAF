@@ -8,8 +8,8 @@ import math
 
 def derivation(funkcija, x, e, metoda = 3):
     '''
-    Funkcija koja racuna vrijednost funkcije u točki x koju odabire korisnik. Korisnik
-    bira diferencijal  e  te metodu derivacije koja može imati vrijednost 2 ili 3.
+    Funkcija koja racuna vrijednost derivacije funkcije u točki x koju odabire korisnik.
+    Korisnik bira diferencijal  e  te metodu derivacije koja može imati vrijednost 2 ili 3.
     '''
     if metoda == 2:
         deriv = (funkcija(x) - funkcija(x-e))/e
@@ -19,8 +19,8 @@ def derivation(funkcija, x, e, metoda = 3):
 
 def derivation_range(funkcija, a, b, e, metoda = 3):
     '''
-    Funkcija koja racuna vrijednost funkcije u rasponu točaka od A do B koji odabire korisnik.
-    Korisnik bira diferencijal  e  te metodu derivacije koja može imati vrijednost 2 ili 3.
+    Funkcija koja racuna vrijednost derivacije funkcije u rasponu točaka od A do B koji odabire 
+    korisnik. Korisnik bira diferencijal  e  te metodu derivacije koja može imati vrijednost 2 ili 3.
     '''
     prije = np.arange(a, b+0.001, 0.001)
     poslije = []
@@ -36,7 +36,7 @@ def integral_square(funkcija, a, b, br):
     Funkcija koja kao ulazne parametre prima funkciju, granice integracije i broj podjela
     za numeričku integraciju, a vraća gornju i donju među koristeći pravokutnu aproksimaciju.    
     '''
-    e = (b-a)/br
+    e = abs((b-a)/br)
     x = np.arange(a, b+0.0001, e)
     donja = 0
     gornja = 0
@@ -52,7 +52,7 @@ def integral_trapezoid(funkcija, a, b, br):
     Funkcija koja kao ulazne parametre prima funkciju, granice integracije i broj podjela
     za numeričku integraciju, a vraća vrijednost integrala koristeći trapeznu aproksimaciju. 
     '''
-    e = (b-a)/br
+    e = abs((b-a)/br)
     trap = 0
     integ = 0
     x = np.arange(a, b+0.0001, e)
