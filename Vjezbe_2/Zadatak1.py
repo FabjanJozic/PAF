@@ -19,7 +19,7 @@ def graf_gibanje(F, m):
         put.append(put[i]+brzina[i]*(dt))     # type: ignore
         akceleracija.append(F/m)
         
-    fig, ((axes1, axes2), (axes3, axes4)) = plt.subplots(nrows=2, ncols=2, figsize=(9,5.5), dpi=150)  # type: ignore
+    fig, ((axes1, axes2), (axes3, axes4)) = plt.subplots(nrows=2, ncols=2, figsize=(9,5.5), dpi=100)  # type: ignore
     plt.axis('equal')
     plt.rcParams.update({'font.size': 7.5})  # type: ignore
     axes1.plot(vrijeme, akceleracija, 'b')

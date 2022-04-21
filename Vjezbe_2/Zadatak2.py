@@ -23,7 +23,7 @@ def kosi_hitac(v, kut):
         xpomak.append(xpomak[i]+xbrzina[i]*(dt))
         ypomak.append(ypomak[i]+ybrzina[i]*(dt))
         
-    fig, ((axes1, axes2), (axes3, axes4)) = plt.subplots(nrows=2, ncols=2, figsize=(9,5.5), dpi=150)  # type: ignore
+    fig, ((axes1, axes2), (axes3, axes4)) = plt.subplots(nrows=2, ncols=2, figsize=(9,5.5), dpi=120)  # type: ignore
     plt.axis('equal')  # type: ignore
     plt.rcParams.update({'font.size': 9})  # type: ignore
     axes1.plot(xpomak, ypomak, 'k')

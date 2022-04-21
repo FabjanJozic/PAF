@@ -132,7 +132,7 @@ def meta(v, kut, Sx, Sy, r, t):
         opis = 'Tijelo je pogodilo metu.'
     else:
         opis = 'Tijelo je promašilo metu za {}m.'.format(udaljenost)
-    fig = plt.figure(figsize=(6,4), dpi=200)
+    fig = plt.figure(figsize=(13,7), dpi=100)
     axes = fig.add_axes([0.15, 0.15, 0.75, 0.75])
     axes.set_aspect('equal')
     plt.rcParams.update({'font.size': 8})           #type: ignore
@@ -147,4 +147,4 @@ def meta(v, kut, Sx, Sy, r, t):
     axes.grid()
     return plt.show()
 
-meta(20, 45, 15, 10, 3, 6)
+meta(23, 45, 15, 10, 3, 4)
