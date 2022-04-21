@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as tick
 
 
-v = 20      #ovo sami mijenjate
+v = 25      #ovo sami mijenjate
 dt = 0.001
 kut1 = []
 kut2 = []

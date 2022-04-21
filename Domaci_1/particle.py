@@ -141,7 +141,7 @@ class Particle:
                 if bum1 == True:
                     kut1.append(kut_1)
                 kut_1 += 0.1
-            while kut_2 < 90:
+            while kut_2 <= 90:
                 bum2 = False
                 self.reset()
                 self.set_initial_conditions(v0, kut_2, x0, y0)
