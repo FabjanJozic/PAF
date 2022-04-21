@@ -16,7 +16,7 @@ def jednadzba_pravca(A1, A2, B1, B2):
         X = np.linspace(A1+2, B1-2, 1000)
     Y = k*(X - A1) + A2
 
-    naslov = input('Kako želite da se zove naslov grafa? ')
+    naslov = input('Kako želite da se zove graf? ')
 
     x = [i for i in xkoordinate]
     y = [e for e in ykoordinate]
@@ -48,4 +48,4 @@ def jednadzba_pravca(A1, A2, B1, B2):
 
 
 
-jednadzba_pravca(1,6,7,4)
+jednadzba_pravca(1,2,7,4)

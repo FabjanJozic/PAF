@@ -24,27 +24,27 @@ def kruznica():
     xkoordinate = [Ax, Sx]
     ykoordinate = [Ay, Sy]
 
-    if udaljenost1 < rad:
+    if udaljenost1 < rad:           #type: ignore
         opis = 'Točka A se nalazi unutar kružnice.'
-    elif udaljenost1 == rad:
+    elif udaljenost1 == rad:        #type: ignore
         opis = 'Točka A se nalazi na kružnici.'
     else:
         opis = 'Točka A se nalazi izvan kružnice.'
     
     naslov = input('Upišite naziv prikaza: ')
 
-    fig = plt.figure(figsize=(4,3), dpi=200)
-    axes = fig.add_axes([0.15, 0.15, 0.7, 0.7])
+    fig = plt.figure(figsize=(8,5), dpi=100)
+    axes = fig.add_axes([0.15, 0.15, 0.75, 0.75])
     axes.set_aspect('equal')
-    plt.rcParams.update({'font.size': 6})
+    plt.rcParams.update({'font.size': 8})               #type: ignore
     plt.axis('equal')
     axes.plot(Ax, Ay, 'r*')
     axes.plot(Sx, Sy, 'b*')
-    axes.plot(x, y, 'b')
+    axes.plot(x, y, 'b')            #type: ignore
     axes.set_xlabel('x-os')
     axes.set_ylabel('y-os')
     axes.set_title(naslov)
-    axes.legend(['{}'.format(opis)+'\n'+'Točka A udaljena je od kružnce za'+'\n'+'{}.'.format(udaljenost2), 'Središte kružnice točka S.', 'Kružnica.'], loc = 'best')
+    axes.legend(['{}'.format(opis)+'\n'+'Točka A udaljena je od kružnce za'+'\n'+'{}.'.format(udaljenost2), 'Središte kružnice točka S.', 'Kružnica.'], loc = 'best')       #type: ignore
     axes.grid()
 
     xxxx = [i for i in xkoordinate]
@@ -64,7 +64,7 @@ def kruznica():
     else:
         print('Pogreška pri odabiru opcije ispisa grafa.')
 
-    return slika
+    return slika            # type: ignore
 
 
 
