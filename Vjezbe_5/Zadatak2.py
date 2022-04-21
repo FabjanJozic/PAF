@@ -17,7 +17,7 @@ position = 15
 period_n = []
 period_a = []
 korak = []
-for e in np.arange(0.0005, 0.1, 0.0005):
+for e in np.arange(0.0005, 0.15, 0.0005):
     tijelo.set_initial_conditions(mass, constant, velocity, position)
     korak.append(e)
     period_n.append(tijelo.period(e)[0])
@@ -26,7 +26,7 @@ for e in np.arange(0.0005, 0.1, 0.0005):
 
 
 
-fig = plt.figure(figsize=(12,6.2), dpi=100)
+fig = plt.figure(figsize=(15,6.2), dpi=90)
 axes = fig.add_axes([0.15, 0.15, 0.75, 0.75])
 plt.rcParams.update({'font.size': 8})           #type: ignore
 axes.plot(korak, period_n, 'b',marker='o', markersize=3, markerfacecolor="red")            
