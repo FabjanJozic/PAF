@@ -8,7 +8,7 @@ x0 = 0
 y0 = 0
 resistivity_constant = 0.32
 surface_area = 1.08
-air_density = 0.0015
+air_density = 1.3
 dt = 0.01
 
 p1 = pro.Projectile()
