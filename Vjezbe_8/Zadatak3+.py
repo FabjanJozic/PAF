@@ -13,7 +13,7 @@ y0 = 0
 resistivity_constant = 0.32
 surface_area = 1.08
 air_density = 1.3
-dt = 0.01
+dt = 0.001
 
 p = pro.Projectile()
 
@@ -30,7 +30,7 @@ for m in np.arange(0.5, 50.5, 0.5):
     range_M.append(p.range_RK4(dt))
     p.reset()
     
-for c in np.arange(0, 1.1, 0.1):
+for c in np.arange(0, 2.0, 0.1):
     Cd.append(c)
     p.set_initial_conditions(mass, velocity, alpha, x0, y0)
     p.set_parameters(c, surface_area, air_density)
@@ -53,7 +53,7 @@ axes[1].plot(Cd, range_Cd, 'r')                                 #type: ignore
 axes[1].set_xlabel('air resistivity constant')                  #type: ignore
 axes[1].set_ylabel('range   $[m]$')                             #type: ignore
 axes[1].grid(lw=0.5)                                            #type: ignore
-axes[1].xaxis.set_major_locator(ticker.MultipleLocator(0.1))    #type: ignore
+axes[1].xaxis.set_major_locator(ticker.MultipleLocator(0.25))   #type: ignore
 axes[1].axis('tight')                                           #type: ignore
 axes[1].set_title('Ovisnost dometa o konstanti otpora zraka')   #type: ignore
 plt.show()
