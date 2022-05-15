@@ -50,7 +50,7 @@ HarmonicOscillator::HarmonicOscillator(double x0, double v0, double K, double m,
     V.push_back(_v0);
     X.push_back(_x0);
     T.push_back(0.0);
-    while(T[-1] <= _time){
-        T.push_back(T[-1]+dt);
+    while(T.back() <= _time){
+        T.push_back(T.back()+dt);
     }
 }
