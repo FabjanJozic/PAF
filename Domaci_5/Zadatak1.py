@@ -5,34 +5,36 @@ import numpy as np
 
 
 E = np.array([0., 0., 0.])
+B = np.array([0., 0., em.power(4.25, -10)])
 
-def function_B0(t):
-    Bx = 0.
-    By = 0.
-    Bz = em.power(4.25, -10)
+def B_f(t):
+    Bx = 0.0
+    By = 0.0
+    Bz = t/10
     return np.array([Bx, By, Bz])
 
-def function_B(t):
-    Bx = 0.
-    By = 0.
-    Bz = t/10
+def B_f0(t):
+    Bx = 0.0
+    By = 0.0
+    Bz = em.power(4.25, -10)
     return np.array([Bx, By, Bz])
 
 coordinates = np.array([0., 0., 0.])
 mass = em.power(9.11, -31)
 charge_e = em.power(-1, -19)
 charge_p = em.power(1, -19)
-dt = 0.001
+dt = 0.0005
 time = 10
 velocity = np.array([150., 150., 10.])
 
-ele1 = em.ElectromagneticField(coordinates, mass, charge_e, E, function_B, velocity)
-ele2 = em.ElectromagneticField(coordinates, mass, charge_e, E, function_B0, velocity)
-poz = em.ElectromagneticField(coordinates, mass, charge_p, E, function_B, velocity)
+ele1 = em.ElectromagneticField(coordinates, mass, charge_e, E, B, velocity, B_f)
+ele2 = em.ElectromagneticField(coordinates, mass, charge_e, E, B, velocity, B_f0)
+poz = em.ElectromagneticField(coordinates, mass, charge_p, E, B, velocity, B_f)
 
-x1, y1, z1 = ele1.moveit_RK4(dt, time)
-x2, y2, z2 = ele2.moveit_RK4(dt, time)
-x3, y3, z3 = poz.moveit_RK4(dt, time)
+x1, y1, z1 = ele1.moveit_f(dt, time)
+x2, y2, z2 = ele2.moveit_f(dt, time)
+x3, y3, z3 = poz.moveit_f(dt, time)
+
 
 
 fig = plt.figure(figsize=(16, 9), dpi=70)
