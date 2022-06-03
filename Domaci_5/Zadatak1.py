@@ -16,17 +16,16 @@ def B_f(t):
 def B_f0(t):
     Bx = 0.0
     By = 0.0
-    #Bz = em.power(4.25, -10)
-    Bz = 0.01
+    Bz = 0.004
     return np.array((Bx, By, Bz))
 
 coordinates = np.array((0., 0., 0.))
 #mass = em.power(9.11, -31)
 #charge_e = em.power(-1, -19)
 #charge_p = em.power(1, -19)
-mass = 0.001
-charge_e = 1.0
-charge_p = -1.0
+mass = 0.0008
+charge_e = -1
+charge_p = 1
 dt = 0.0005
 time = 10
 velocity = np.array((150., 150., 10.))
