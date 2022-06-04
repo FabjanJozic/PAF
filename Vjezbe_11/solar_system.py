@@ -33,6 +33,8 @@ class System():
         return -self.G*m/((np.sqrt((r1[0]-r2[0])**2+(r1[1]-r2[1])**2))**3)*np.subtract(r1, r2)
         
     def __move(self):
+        r_Earth = self.r_Earth
+        r_Sun = self.r_Sun
         k1v_1 = self.__acceleration(self.m_Earth, self.r_Sun, self.r_Earth)*self.dt
         k1r_1 = self.v_Sun*self.dt
         k2v_1 = self.__acceleration(self.m_Earth, self.r_Sun+k1r_1/2, self.r_Earth+k1r_1/2)*self.dt
@@ -42,7 +44,7 @@ class System():
         k4v_1 = self.__acceleration(self.m_Earth, self.r_Sun, self.r_Earth)*self.dt
         k4r_1 = self.v_Sun*self.dt
         self.v_Sun = np.add(self.v_Sun, (k1v_1+2*k2v_1+2*k3v_1+k4v_1)/6)
-        self.r_Sun = np.add(self.r_Sun, (k1r_1+2*k2r_1+2*k3r_1+k4r_1)/6)
+        self.r_Sun = np.add(r_Sun, (k1r_1+2*k2r_1+2*k3r_1+k4r_1)/6)
         self.x_Sun.append(self.x_Sun[-1]+(k1r_1[0]+2*k2r_1[0]+2*k3r_1[0]+k4r_1[0])/6)
         self.y_Sun.append(self.y_Sun[-1]+(k1r_1[1]+2*k2r_1[1]+2*k3r_1[1]+k4r_1[1])/6)
         k1v_2 = self.__acceleration(self.m_Sun, self.r_Earth, self.r_Sun)*self.dt
@@ -54,7 +56,7 @@ class System():
         k4v_2 = self.__acceleration(self.m_Sun, self.r_Earth, self.r_Sun)*self.dt
         k4r_2 = self.v_Earth*self.dt
         self.v_Earth = np.add(self.v_Earth, (k1v_2+2*k2v_2+2*k3v_2+k4v_2)/6)
-        self.r_Earth = np.add(self.r_Earth, (k1r_2+2*k2r_2+2*k3r_2+k4r_2)/6)
+        self.r_Earth = np.add(r_Earth, (k1r_2+2*k2r_2+2*k3r_2+k4r_2)/6)
         self.x_Earth.append(self.x_Earth[-1]+(k1r_2[0]+2*k2r_2[0]+2*k3r_2[0]+k4r_2[0])/6)
         self.y_Earth.append(self.y_Earth[-1]+(k1r_2[1]+2*k2r_2[1]+2*k3r_2[1]+k4r_2[1])/6)       
         self.t += self.dt
