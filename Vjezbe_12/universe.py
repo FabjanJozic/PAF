@@ -4,25 +4,14 @@ import numpy as np
 
 
 class Planet():
-    def __init__(self):
+    def __init__(self, name, mass, x0, y0, velocity, radius):
+        self.velocity = np.array([0., velocity])
         self.acceleration = np.array([0., 0.])
-        self.radius = 0
-        self.mass = 0
-        self.name = ''
-        self.x = []
-        self.y = []
-        
-    def set_initial_conditions(self, name, mass, distance, velocity, radius):
-        self.distance = distance
-        self.velocity = velocity
         self.radius = radius
         self.mass = mass
         self.name = name
-        self.x.append(self.distance[0])
-        self.y.append(self.distance[1])
-        
-    def reset(self):
-        self.__init__()
+        self.x = [x0]
+        self.y = [y0]
 
 
 
@@ -46,13 +35,13 @@ class Universe():
                     r_x = planet1.x[-1]-planet2.x[-1]
                     r_y = planet1.y[-1]-planet2.y[-1]
                     r = np.sqrt(r_x**2+r_y**2)
-                    force[0] += -(self.G*planet1.mass*planet2.mass/(r**2))*(r_x/r)
-                    force[1] += -(self.G*planet1.mass*planet2.mass/(r**2))*(r_y/r)
+                    force[0] += -self.G*planet1.mass*planet2.mass/(r**2)*(r_x/r)
+                    force[1] += -self.G*planet1.mass*planet2.mass/(r**2)*(r_y/r)
             planet1.acceleration = np.array([force[0]/planet1.mass, force[1]/planet1.mass])
             planet1.velocity = np.array([planet1.velocity[0]+planet1.acceleration[0]*dt, planet1.velocity[1]+planet1.acceleration[1]*dt])
             planet1.x.append(planet1.x[-1]+planet1.velocity[0]*dt)
-            planet1.y.append(planet1.y[-1]+planet1.velocity[1]+dt)
-        self.t.append(self.t[-1]+dt)
+            planet1.y.append(planet1.y[-1]+planet1.velocity[1]*dt)
+        self.t.append(self.t[-1]+dt)       
             
     def evolve(self, time, dt):
         while self.t[-1] <= time:
