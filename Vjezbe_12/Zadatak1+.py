@@ -28,9 +28,9 @@ system.add_planet(Mars)
 
 system.evolve(5*year, dt)
 
-fig = plt.figure(figsize=(14,7), dpi=90)
+fig = plt.figure(figsize=(12,6), dpi=110)
 plt.rcParams.update({'font.size': 8})                            #type: ignore
-axes = fig.add_axes([0.15, 0.15, 0.75, 0.75])
+axes = fig.add_axes([0.1, 0.1, 0.8, 0.8])
 axes.axis('equal')
 axes.set_aspect('equal')
 axes.plot(Sun.x, Sun.y, color="yellow", lw=0.4)
