@@ -4,7 +4,7 @@ import numpy as np
 
 
 class Planet():
-    def __init__(self, name, mass, x0, y0, velocity, radius):
+    def __init__(self, name, mass, x0, y0, velocity, radius, collor, size):
         self.velocity = np.array([0., velocity])
         self.acceleration = np.array([0., 0.])
         self.radius = radius
@@ -12,6 +12,8 @@ class Planet():
         self.name = name
         self.x = [x0]
         self.y = [y0]
+        self.collor = collor
+        self.size = size
 
 
 
