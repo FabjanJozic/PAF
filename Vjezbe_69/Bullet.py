@@ -60,4 +60,27 @@ class Bullet:
         return plt.show()
     
     def set_dt(self, dt):
-        self.dt =dt
+        self.dt = dt
+        
+    def speed_to_hit_target(self, distance, hight, y0, size):
+        self.x = [0.]
+        self.y = [y0]
+        speed = []
+        v = 0.
+        while v <= 250:
+            bum = False
+            self.vx = []
+            self.vx = [v]
+            while self.y[-1] >= 0:
+                self.__move()
+                x = abs(self.x[-1]-distance)
+                y = abs(self.y[-1]-hight)
+                if y <= size:
+                    bum = True
+            if bum == True:
+                speed.append(v)
+            v += 1.
+        if len(speed) == 0:
+            print('Promijenite parametre.')
+        else:
+             print(sum(speed)/len(speed))
